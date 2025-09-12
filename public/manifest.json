@@ -1,0 +1,33 @@
+{
+  "short_name": "Recytoken",
+  "name": "RECYTOKEN-UP",
+  "description": "Plataforma de Reciclaje Blockchain para Nicaragua",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#16a34a",
+  "background_color": "#ffffff",
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "url": "/#dashboard",
+      "description": "View main dashboard"
+    },
+    {
+      "name": "Marketplace",
+      "url": "/#marketplace",
+      "description": "Buy recycled materials"
+    }
+  ]
+}

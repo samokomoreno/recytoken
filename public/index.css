@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f1f5f9; /* neutral-100 */
+    background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
+    background-size: 15px 15px;
+}
+
+.dark body {
+    background-color: #0f172a; /* neutral-900 */
+    background-image: radial-gradient(#334155 0.5px, transparent 0.5px);
+}
+
+.input-field {
+    @apply block w-full px-3 py-2 rounded-md border border-neutral-300 bg-white dark:bg-neutral-800 dark:border-neutral-600 shadow-sm transition-colors duration-200;
+    @apply focus:border-primary-500 focus:ring-2 focus:ring-primary-500/50 focus:outline-none;
+    @apply read-only:bg-neutral-100 dark:read-only:bg-neutral-700 read-only:cursor-not-allowed;
+}
