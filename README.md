@@ -1,3 +1,87 @@
+📌 RECYTOKEN — Recycling Marketplace
+
+RECYTOKEN is a Progressive Web Application (PWA) designed as a sustainable marketplace where individuals and companies can securely and transparently buy and sell recyclable materials.
+
+The platform integrates a digital traceability system that enables tracking of materials throughout their lifecycle, from collection to commercialization, thus fostering the circular economy and environmental responsibility.
+
+With a modern, responsive, and accessible design, RECYTOKEN provides management of:
+
+🏭 Collection centers and registered companies.
+📦 Materials classified by type, quality, and available quantity.
+🔄 Traceability of movements through unique tokens.
+🛒 Marketplace for direct transactions between participants.
+📊 Real-time analytics on environmental and financial impact.
+
+The goal of the project is to promote sustainability, ensure transaction transparency, and empower communities through technology.
+
+The RECYTOKEN-UP application was developed using the Next.js 13 framework with React 18 as the foundation for building modular and reusable interfaces. Tailwind CSS was implemented as the styling system, enabling a responsive, modern, and consistent design aligned with the platform’s sustainable green identity. For data visualization, Recharts was used to generate dynamic and interactive charts, while Lucide-react provided a lightweight and scalable icon set. The application was configured as a PWA (Progressive Web App) using manifest.json and sw.js, allowing installation on mobile and desktop devices with basic offline support. Additionally, LocalStorage persistence and blockchain simulation were included for recyclable material traceability, ensuring a smooth and realistic platform experience.
+
+The current application already employs an effective approach to simulate Web3, smart contracts, and blockchain functionality. Below is an explanation of how this simulation works and how it relates to real-world concepts:
+
+1. Token Simulation (NFTs) for Materials
+
+Each batch of recyclable material is treated as a unique digital asset, similar to a Non-Fungible Token (NFT).
+
+How it is currently simulated:
+
+In types.ts, the Material interface includes two key properties:
+
+tokenId: string; (e.g., TKN-PET-001X) — the unique identifier of the token. In a real blockchain, this would be the NFT ID representing that PET batch.
+
+walletAddress: string; (e.g., 0x1A...a2B) — simulates the digital wallet (like MetaMask) that owns the token. In the app, it represents the collection center that owns the material.
+
+When you create a new material in the form (MaterialForm.tsx), the application automatically generates a simulated tokenId and walletAddress. This process is analogous to “minting” an NFT on a blockchain.
+
+2. Blockchain Traceability Simulation
+
+Blockchain’s main advantage is its immutable and transparent transaction log. The Traceability section of the app imitates this perfectly.
+
+How it is currently simulated:
+
+Every time an important event occurs with a material (collected, processed, sold), a new Transaction object is created (defined in types.ts).
+
+All transactions are linked by the materialTokenId.
+
+In the Traceability section, when you search for a tokenId, the app filters and displays the complete history of that material batch, ordered by date.
+
+This is equivalent to using a block explorer like Etherscan, where you can search a token and view its entire transfer history. The only difference is that here the data is stored in the browser’s LocalStorage instead of a distributed network.
+
+3. Smart Contract Logic Simulation
+
+Smart contracts are programs executed on the blockchain that automatically enforce business rules. In the app, this logic is simulated within React functions.
+
+How it is currently simulated:
+
+Example: Marketplace.tsx when a user purchases a material.
+
+Contract Rule: “You can only buy if there is available inventory.”
+
+Simulation: The checkout form (CheckoutModal) prevents purchasing more than the available material.inventoryKg.
+
+Contract Rule: “When purchase is complete, inventory must decrease and the sale must be recorded.”
+
+Simulation: The function handlePurchaseComplete does exactly this:
+
+Updates the materials state to reduce inventory.
+
+Creates a new Transaction with the status TransactionStatus.Sold.
+
+This programmatic rule enforcement and resulting state update is essentially the core principle of a smart contract.
+
+✅ Summary of the Simulation
+Blockchain/Web3 Concept	Simulation in the Current App
+Tokenization (NFT)	tokenId and walletAddress in the Material interface.
+Digital Wallet	walletAddress property linking a material to its owner.
+Immutability & Traceability	Transaction history linked to materialTokenId.
+Smart Contract Logic	Business rules coded in React components (e.g., handlePurchaseComplete).
+Transactions	Creation of Transaction objects recording each state change.
+
+This approach is highly effective because it allows developers to design and test the user experience (UX) and application logic quickly and cost-effectively. The final step would be integrating with a real Web3 library (such as ethers.js or web3.js) and deploying smart contracts on a real network (Polygon, Ethereum, etc.).
+
+___________________________________________________________________________________________________________________
+
+
+
 📌 RECYTOKEN — Marketplace de Reciclaje
 
 RECYTOKEN es una aplicación web progresiva (PWA) diseñada como un marketplace sostenible donde personas y empresas pueden vender y comprar materiales reciclables de manera segura y transparente.
